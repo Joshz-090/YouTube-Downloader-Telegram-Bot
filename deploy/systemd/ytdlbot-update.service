@@ -1,0 +1,13 @@
+[Unit]
+Description=Update yt-dlp and restart YouTube Bot
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=botuser
+Group=docker
+WorkingDirectory=/opt/ytdlbot
+ExecStart=/opt/ytdlbot/scripts/update-ytdlp.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ytdlbot-update
